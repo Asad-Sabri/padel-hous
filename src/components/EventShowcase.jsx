@@ -22,6 +22,7 @@ const events = [
   { title: 'NIGHT PADEL', meta: 'Night Session | Berlin', image: img8, badge: 'Moonlight Rally' },
   { title: 'FINALS WEEKEND', meta: 'Tournament | Hamburg', image: img9, badge: 'Championship' }
 ];
+
 export default function EventShowcase() {
   const trackRef = useRef(null);
   const [isAtEnd, setIsAtEnd] = useState(false);
@@ -72,12 +73,15 @@ export default function EventShowcase() {
               viewport={{ once: true, margin: '-10%' }}
               transition={{ duration: 0.4, delay: index * 0.05, ease: 'easeOut' }}
             >
-              <div
-                className="absolute inset-0"
+              {/* Lazy loaded image */}
+              <img
+                src={event.image}
+                alt={event.title}
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover"
                 style={{
-                  backgroundImage: `linear-gradient(180deg, rgba(0,0,0,0.45) 20%, rgba(0,0,0,0.65) 65%), url('${event.image}')`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center'
+                  maskImage: 'linear-gradient(180deg, rgba(0,0,0,0.45) 20%, rgba(0,0,0,0.65) 65%)',
+                  WebkitMaskImage: 'linear-gradient(180deg, rgba(0,0,0,0.45) 20%, rgba(0,0,0,0.65) 65%)'
                 }}
               />
 

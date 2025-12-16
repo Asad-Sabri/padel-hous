@@ -7,6 +7,7 @@ import mobileVideo from "../../public/videos/padelhaus-2-mobile.mp4";
 export default function Hero() {
   const [videoError, setVideoError] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     // Check for reduced motion preference
@@ -15,7 +16,16 @@ export default function Hero() {
 
     const handleChange = (e) => setPrefersReducedMotion(e.matches);
     mediaQuery.addEventListener("change", handleChange);
-    return () => mediaQuery.removeEventListener("change", handleChange);
+
+    // Detect mobile
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleChange);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (
@@ -24,30 +34,7 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Video Background */}
-      {!prefersReducedMotion && (
-        // <video
-        //   className="absolute inset-0 w-full h-full object-cover"
-        //   style={{
-        //     objectPosition: "center 40%", // Show more of the middle/bottom part of video
-        //   }}
-        //   autoPlay
-        //   loop
-        //   muted
-        //   playsInline
-        //   poster="https://images.unsplash.com/photo-1622278647429-71f511b0aaf0?auto=format&fit=crop&w=1920&q=80"
-        //   onCanPlay={() => setVideoError(false)}
-        //   onError={(e) => {
-        //     console.log("Video error:", e);
-        //     setVideoError(true);
-        //   }}
-        // >
-        //   <source
-        //     src={mobileVideoSrc}
-        //     type="video/mp4"
-        //     media="(max-width: 768px)"
-        //   />
-        //   <source src={desktopVideoSrc} type="video/mp4" />
-        // </video>
+      {!prefersReducedMotion && !videoError && (
         <video
           className="absolute inset-0 w-full h-full object-cover overflow-hidden"
           style={{ objectPosition: "center 40%" }}
@@ -57,37 +44,34 @@ export default function Hero() {
           playsInline
           preload="metadata"
           poster="https://images.unsplash.com/photo-1622278647429-71f511b0aaf0?auto=format&fit=crop&w=1920&q=80"
-          onCanPlay={() => setVideoError(false)}
-          onError={(e) => setVideoError(true)}
         >
           <source
-            src={mobileVideo}
+            src={isMobile ? mobileVideo : desktopVideo}
             type="video/mp4"
-            media="(max-width: 768px)"
           />
-          <source src={desktopVideo} type="video/mp4" />
         </video>
       )}
 
       {/* Fallback background image */}
-      {(videoError || prefersReducedMotion) && (
-        <div
-          className="absolute inset-0 w-full h-full bg-cover bg-center"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1622278647429-71f511b0aaf0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`,
-          }}
+      {(prefersReducedMotion || videoError) && (
+        <img
+          src="https://images.unsplash.com/photo-1622278647429-71f511b0aaf0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+          alt="Padel Club Background"
+          loading="lazy"
+          className="absolute inset-0 w-full h-full object-cover"
         />
       )}
 
-      {/* Gradient overlay for better text readability */}
+      {/* Gradient overlay */}
       <div
         className="absolute inset-0"
         style={{
           background:
             "linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.4) 100%)",
         }}
-      ></div>
+      />
 
+      {/* Hero Content */}
       <motion.div
         className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto md:mt-28 lg:mt-32"
         initial={{ opacity: 0, y: 30 }}
@@ -100,8 +84,8 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
         >
-          <span className="">Berlin ,</span>
-          <br /> <span className="">Let's Padel</span>
+          <span>Berlin ,</span>
+          <br /> <span>Let's Padel</span>
         </motion.h1>
 
         <motion.p
@@ -110,7 +94,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
         >
-          {/* EXPERIENCE BERLIN'S FIRST INDOOR PADEL CLUB! ENJOY PADEL ON AND OFF THE PITCH IN OUR NEW INDUSTRIAL LOACTION BY THE SPREE */}
+          EXPERIENCE BERLIN'S FIRST INDOOR PADEL CLUB! ENJOY PADEL ON AND OFF THE PITCH IN OUR NEW INDUSTRIAL LOCATION BY THE SPREE
         </motion.p>
 
         <motion.button
