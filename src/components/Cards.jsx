@@ -39,21 +39,19 @@ const cardVariants = {
 
 export default function Cards() {
   return (
-    <section id="about" className="w-full py-0 md:py-25">
+    <section id="about" className="w-full py-0 pb-20 pt-5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-12 md:mb-20 max-w-3xl mx-auto">
-          <p className="text-md font-semibold text-slate-500 uppercase tracking-widest">
+        <div className="text-center  max-w-3xl mx-auto">
+          {/* <p className="text-md font-semibold text-slate-500 uppercase tracking-widest">
             Why Padel FC
-          </p>
-          <h2 className="mt-4 text-3xl font-akira font-bold text-slate-900 sm:text-4xl md:text-5xl">
+          </p> */}
+          {/* <h2 className="mt-4 text-3xl font-akira font-bold text-slate-900 sm:text-4xl md:text-5xl">
             A Unique Padel Experience
-          </h2>
-          <p className="mt-6 text-base text-slate-600 md:text-lg">
+          </h2> */}
+          <p className="text-base my-5 font-weight-700 text-slate-600 md:text-lg">
             {/* Every detail of our club is designed to elevate your match day—from our thoughtfully designed courts to our vibrant community atmosphere. */}
-            PadelHaus offers padel within an elevated sports environment,
-            alongside Beach Volleyball, PickleHaus, floating saunas, and more
-            sports concepts to come making it a vibrant sports hub.
+            PadelHaus offers padel within an elevated sports environment, alongside Beach Volleyball, PickleHaus, floating saunas, and more sports concepts to come making <br /> it a vibrant sports hub.
           </p>
         </div>
 
