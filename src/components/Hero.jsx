@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { handleSmoothScroll } from "../utils/smoothScroll";
-import desktopVideoSrc from "../assets/padelhaus-2-desktop.mp4";
-import mobileVideoSrc from "../assets/padelhaus-2-mobile.mp4";
+import desktopVideo from "../../public/videos/padelhaus-2-desktop.mp4";
+import mobileVideo from "../../public/videos/padelhaus-2-mobile.mp4";
 
 export default function Hero() {
   const [videoError, setVideoError] = useState(false);
@@ -25,28 +25,47 @@ export default function Hero() {
     >
       {/* Video Background */}
       {!prefersReducedMotion && (
+        // <video
+        //   className="absolute inset-0 w-full h-full object-cover"
+        //   style={{
+        //     objectPosition: "center 40%", // Show more of the middle/bottom part of video
+        //   }}
+        //   autoPlay
+        //   loop
+        //   muted
+        //   playsInline
+        //   poster="https://images.unsplash.com/photo-1622278647429-71f511b0aaf0?auto=format&fit=crop&w=1920&q=80"
+        //   onCanPlay={() => setVideoError(false)}
+        //   onError={(e) => {
+        //     console.log("Video error:", e);
+        //     setVideoError(true);
+        //   }}
+        // >
+        //   <source
+        //     src={mobileVideoSrc}
+        //     type="video/mp4"
+        //     media="(max-width: 768px)"
+        //   />
+        //   <source src={desktopVideoSrc} type="video/mp4" />
+        // </video>
         <video
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{
-            objectPosition: "center 40%", // Show more of the middle/bottom part of video
-          }}
+          className="absolute inset-0 w-full h-full object-cover overflow-hidden"
+          style={{ objectPosition: "center 40%" }}
           autoPlay
           loop
           muted
           playsInline
+          preload="metadata"
           poster="https://images.unsplash.com/photo-1622278647429-71f511b0aaf0?auto=format&fit=crop&w=1920&q=80"
           onCanPlay={() => setVideoError(false)}
-          onError={(e) => {
-            console.log("Video error:", e);
-            setVideoError(true);
-          }}
+          onError={(e) => setVideoError(true)}
         >
           <source
-            src={mobileVideoSrc}
+            src={mobileVideo}
             type="video/mp4"
             media="(max-width: 768px)"
           />
-          <source src={desktopVideoSrc} type="video/mp4" />
+          <source src={desktopVideo} type="video/mp4" />
         </video>
       )}
 
