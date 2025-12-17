@@ -17,7 +17,7 @@ const events = [
   { title: 'RIVER CUP', meta: 'Tournament | Spree', image: img7, badge: 'Finals Weekend' },
   { title: 'CITY LIGHTS', meta: 'After Work | Berlin', image: img6, badge: 'Twilight Play' },
   { title: 'SUNRISE MATCH', meta: 'Early Morning | Hamburg', image: img8, badge: 'Golden Hour' },
-  { title: 'MIDDAY PADEL', meta: 'Afternoon Session | Berlin', image: img1, badge: 'Power Play' },
+  { title: 'FUNKHAUS BEACH', meta: 'Afternoon Session | Berlin', image: img1, badge: 'Spree Views' },
   { title: 'EVENING CHALLENGE', meta: 'Evening Event | Spree', image: img3, badge: 'Sunset Smash' },
   { title: 'NIGHT PADEL', meta: 'Night Session | Berlin', image: img4, badge: 'Moonlight Rally' },
   { title: 'FINALS WEEKEND', meta: 'Tournament | Hamburg', image: img9, badge: 'Championship' }
