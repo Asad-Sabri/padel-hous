@@ -1,15 +1,15 @@
 import { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
-import img1 from '../../public/images/1.jpg';
-import img2 from '../../public/images/2.jpg';
-import img3 from '../../public/images/3.jpg';
-import img4 from '../../public/images/4.jpg';
-import img5 from '../../public/images/5.png';
-import img6 from '../../public/images/6.png';
-import img7 from '../../public/images/7.png';
-import img8 from '../../public/images/8.png';
-import img9 from '../../public/images/9.jpg';
+import img1 from '../../public/images/MIDDAY PADEL.jpg';
+import img2 from '../../public/images/7AM CLUB.jpg';
+import img3 from '../../public/images/EVENING CHALLENGE.jpg';
+import img4 from '../../public/images/NIGHT PADEL.jpg';
+import img5 from '../../public/images/PADEL & MUSIC.png';
+import img6 from '../../public/images/CITY LIGHTS.png';
+import img7 from '../../public/images/RIVER CUP.png';
+import img8 from '../../public/images/SUNRISE MATCH.png';
+import img9 from '../../public/images/FINALS WEEKEND.jpg';
 
 const events = [
   { title: '7AM CLUB', meta: 'Community Event | Hamburg', image: img2, badge: 'Morning Grind' },
