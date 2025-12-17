@@ -12,14 +12,14 @@ import img8 from '../../public/images/8.png';
 import img9 from '../../public/images/9.jpg';
 
 const events = [
-  { title: '7AM CLUB', meta: 'Community Event | Hamburg', image: img1, badge: 'Morning Grind' },
-  { title: 'PADEL & MUSIC', meta: 'Night Session | Berlin', image: img2, badge: 'Live DJ Set' },
-  { title: 'RIVER CUP', meta: 'Tournament | Spree', image: img3, badge: 'Finals Weekend' },
-  { title: 'CITY LIGHTS', meta: 'After Work | Berlin', image: img4, badge: 'Twilight Play' },
-  { title: 'SUNRISE MATCH', meta: 'Early Morning | Hamburg', image: img5, badge: 'Golden Hour' },
-  { title: 'MIDDAY PADEL', meta: 'Afternoon Session | Berlin', image: img6, badge: 'Power Play' },
-  { title: 'EVENING CHALLENGE', meta: 'Evening Event | Spree', image: img7, badge: 'Sunset Smash' },
-  { title: 'NIGHT PADEL', meta: 'Night Session | Berlin', image: img8, badge: 'Moonlight Rally' },
+  { title: '7AM CLUB', meta: 'Community Event | Hamburg', image: img2, badge: 'Morning Grind' },
+  { title: 'PADEL & MUSIC', meta: 'Night Session | Berlin', image: img5, badge: 'Live DJ Set' },
+  { title: 'RIVER CUP', meta: 'Tournament | Spree', image: img7, badge: 'Finals Weekend' },
+  { title: 'CITY LIGHTS', meta: 'After Work | Berlin', image: img6, badge: 'Twilight Play' },
+  { title: 'SUNRISE MATCH', meta: 'Early Morning | Hamburg', image: img8, badge: 'Golden Hour' },
+  { title: 'MIDDAY PADEL', meta: 'Afternoon Session | Berlin', image: img1, badge: 'Power Play' },
+  { title: 'EVENING CHALLENGE', meta: 'Evening Event | Spree', image: img3, badge: 'Sunset Smash' },
+  { title: 'NIGHT PADEL', meta: 'Night Session | Berlin', image: img4, badge: 'Moonlight Rally' },
   { title: 'FINALS WEEKEND', meta: 'Tournament | Hamburg', image: img9, badge: 'Championship' }
 ];
 
@@ -73,11 +73,13 @@ export default function EventShowcase() {
               viewport={{ once: true, margin: '-10%' }}
               transition={{ duration: 0.4, delay: index * 0.05, ease: 'easeOut' }}
             >
-              {/* Lazy loaded image */}
+              {/* Optimized lazy loaded image */}
               <img
                 src={event.image}
                 alt={event.title}
-                loading="lazy"
+                loading={index <= 2 ? "eager" : "lazy"}
+                decoding="async"
+                fetchPriority={index === 0 ? "high" : "auto"}
                 className="absolute inset-0 w-full h-full object-cover"
                 style={{
                   maskImage: 'linear-gradient(180deg, rgba(0,0,0,0.45) 20%, rgba(0,0,0,0.65) 65%)',

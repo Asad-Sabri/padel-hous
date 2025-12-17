@@ -70,6 +70,9 @@ export default function Gallery() {
                 key={images[current].src}
                 src={images[current].src}
                 alt={images[current].alt}
+                loading={current === 0 ? "eager" : "lazy"}
+                decoding="async"
+                fetchPriority={current === 0 ? "high" : "auto"}
                 className="w-full h-[340px] sm:h-[440px] lg:h-[560px] object-cover"
                 initial={{ opacity: 0, scale: 1.02 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -117,6 +120,8 @@ export default function Gallery() {
                   <img
                     src={item.src}
                     alt={item.alt}
+                    loading={idx <= 1 ? "eager" : "lazy"}
+                    decoding="async"
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />

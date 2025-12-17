@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { handleSmoothScroll } from "../utils/smoothScroll";
 import desktopVideo from "../../public/videos/padelhaus-2-desktop.mp4";
 import mobileVideo from "../../public/videos/padelhaus-2-mobile.mp4";
 
 export default function Hero() {
+  const videoRef = useRef(null);
   const [videoError, setVideoError] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -28,28 +29,58 @@ export default function Hero() {
     };
   }, []);
 
+  useEffect(() => {
+    // Dynamically load video source to prevent IDM detection
+    // Video source is set programmatically after component mounts
+    if (videoRef.current && !prefersReducedMotion && !videoError) {
+      const video = videoRef.current;
+      const videoSrc = isMobile ? mobileVideo : desktopVideo;
+      
+      // Set video source dynamically to prevent IDM from detecting it initially
+      if (!video.src && videoSrc) {
+        // Small delay to prevent immediate detection by download managers
+        const timer = setTimeout(() => {
+          video.src = videoSrc;
+          video.load();
+        }, 150);
+
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [isMobile, prefersReducedMotion, videoError]);
+
   return (
     <section
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Video Background */}
+      {/* Video Background - Source loaded dynamically to prevent IDM detection */}
       {!prefersReducedMotion && !videoError && (
         <video
-          className="absolute inset-0 w-full h-full object-cover overflow-hidden"
-          style={{ objectPosition: "center 40%" }}
+          ref={videoRef}
+          className="absolute inset-0 w-full h-full object-cover overflow-hidden select-none"
+          style={{ 
+            objectPosition: "center 40%",
+            userSelect: "none",
+            WebkitUserSelect: "none",
+            pointerEvents: "auto"
+          }}
           autoPlay
           loop
           muted
           playsInline
-          preload="metadata"
-          poster="https://images.unsplash.com/photo-1622278647429-71f511b0aaf0?auto=format&fit=crop&w=1920&q=80"
-        >
-          <source
-            src={isMobile ? mobileVideo : desktopVideo}
-            type="video/mp4"
-          />
-        </video>
+          preload="auto"
+          controlsList="nodownload noplaybackrate"
+          disablePictureInPicture
+          draggable="false"
+          onError={() => setVideoError(true)}
+          onLoadedData={(e) => {
+            // Video loaded successfully
+            e.target.play().catch(() => setVideoError(true));
+          }}
+          onContextMenu={(e) => e.preventDefault()}
+          onDragStart={(e) => e.preventDefault()}
+        />
       )}
 
       {/* Fallback background image */}
@@ -57,7 +88,8 @@ export default function Hero() {
         <img
           src="https://images.unsplash.com/photo-1622278647429-71f511b0aaf0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
           alt="Padel Club Background"
-          loading="lazy"
+          loading="eager"
+          fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover"
         />
       )}
