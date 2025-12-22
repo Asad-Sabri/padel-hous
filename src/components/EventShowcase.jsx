@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 
 import img1 from '../../public/images/MIDDAY PADEL.jpg';

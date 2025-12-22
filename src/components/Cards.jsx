@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import court from "../assets/icons/court.svg";
 import indoor from "../assets/icons/indoor.svg";
@@ -39,7 +40,7 @@ const cardVariants = {
 
 export default function Cards() {
   return (
-    <section id="about" className="w-full py-0 pb-20 pt-5 relative overflow-hidden">
+    <section id="about" className="w-full py-0 pb-20 pt-5 relative overflow-hidden bg-gray-200">
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}

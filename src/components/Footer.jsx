@@ -1,8 +1,12 @@
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import logo from "../assets/logo-one.svg";
 
 export default function Footer() {
-  const clubs = [{ name: "Beach VolleyBall" }, { name: "PickleBall" }];
+  const clubs = [
+    { name: "Funkhaus Beach", url: "https://sporthaus-berlin.net/" },
+    { name: "PickleHaus Beach", url: "https://picklehaus-berlin.net/" }
+  ];
 
   const companyLinks = [
     { label: "About Us" },
@@ -39,7 +43,14 @@ export default function Footer() {
           <ul className="space-y-2 text-sm text-white/85">
             {clubs.map((club) => (
               <li key={club.name} className="flex items-center gap-2">
-                <span>{club.name}</span>
+                <a
+                  href={club.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#FEDD00] transition-colors duration-200"
+                >
+                  {club.name}
+                </a>
                 {club.tag && (
                   <span className="text-[11px] uppercase bg-white text-black px-2 py-0.5 rounded-md leading-tight">
                     {club.tag}
