@@ -1,98 +1,33 @@
-import { useState, useEffect, useRef } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { handleSmoothScroll } from "../utils/smoothScroll";
+// Note: Agar video public folder mein hai, to path "/videos/..." kafi hota hai
 import desktopVideo from "../../public/videos/padelhaus-2-desktop.mp4";
-import mobileVideo from "../../public/videos/padelhaus-2-mobile.mp4";
 
 export default function Hero() {
-  const videoRef = useRef(null);
-  const [videoError, setVideoError] = useState(false);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    // Check for reduced motion preference
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setPrefersReducedMotion(mediaQuery.matches);
-
-    const handleChange = (e) => setPrefersReducedMotion(e.matches);
-    mediaQuery.addEventListener("change", handleChange);
-
-    // Detect mobile
-    const handleResize = () => setIsMobile(window.innerWidth <= 768);
-    handleResize();
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleChange);
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  useEffect(() => {
-    // Dynamically load video source to prevent IDM detection
-    // Video source is set programmatically after component mounts
-    if (videoRef.current && !prefersReducedMotion && !videoError) {
-      const video = videoRef.current;
-      const videoSrc = isMobile ? mobileVideo : desktopVideo;
-      
-      // Set video source dynamically to prevent IDM from detecting it initially
-      if (!video.src && videoSrc) {
-        // Small delay to prevent immediate detection by download managers
-        const timer = setTimeout(() => {
-          video.src = videoSrc;
-          video.load();
-        }, 150);
-
-        return () => clearTimeout(timer);
-      }
-    }
-  }, [isMobile, prefersReducedMotion, videoError]);
-
   return (
     <section
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Video Background - Source loaded dynamically to prevent IDM detection */}
-      {!prefersReducedMotion && !videoError && (
-        <video
-          ref={videoRef}
-          className="absolute inset-0 w-full h-full object-cover overflow-hidden select-none"
-          style={{ 
-            objectPosition: "center 40%",
-            userSelect: "none",
-            WebkitUserSelect: "none",
-            pointerEvents: "auto"
-          }}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          controlsList="nodownload noplaybackrate"
-          disablePictureInPicture
-          draggable="false"
-          onError={() => setVideoError(true)}
-          onLoadedData={(e) => {
-            // Video loaded successfully
-            e.target.play().catch(() => setVideoError(true));
-          }}
-          onContextMenu={(e) => e.preventDefault()}
-          onDragStart={(e) => e.preventDefault()}
-        />
-      )}
-
-      {/* Fallback background image */}
-      {(prefersReducedMotion || videoError) && (
-        <img
-          src="https://images.unsplash.com/photo-1622278647429-71f511b0aaf0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-          alt="Padel Club Background"
-          loading="eager"
-          fetchPriority="high"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-      )}
+      {/* Fixed Video Background */}
+      <video
+        src={desktopVideo}
+        className="absolute inset-0 w-full h-full object-cover overflow-hidden select-none"
+        style={{
+          objectPosition: "center 40%",
+          userSelect: "none",
+          WebkitUserSelect: "none",
+          pointerEvents: "none", // Isko 'none' rakhein taaki clicks button par jayein
+        }}
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        controlsList="nodownload noplaybackrate"
+        disablePictureInPicture
+      />
 
       {/* Gradient overlay */}
       <div
@@ -126,7 +61,8 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
         >
-          EXPERIENCE BERLIN'S FIRST INDOOR PADEL CLUB! ENJOY PADEL ON AND OFF THE PITCH IN OUR NEW INDUSTRIAL LOCATION BY THE SPREE
+          EXPERIENCE BERLIN'S FIRST INDOOR PADEL CLUB! ENJOY PADEL ON AND OFF
+          THE PITCH IN OUR NEW INDUSTRIAL LOCATION BY THE SPREE
         </motion.p>
 
         <motion.button

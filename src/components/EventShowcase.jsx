@@ -3,13 +3,13 @@ import { motion } from 'framer-motion';
 
 import img1 from '../../public/images/MIDDAY PADEL.jpg';
 import img2 from '../../public/images/7AM CLUB.jpg';
-import img3 from '../../public/images/EVENING CHALLENGE.jpg';
-import img4 from '../../public/images/NIGHT PADEL.jpg';
+// import img3 from '../../public/images/EVENING CHALLENGE.jpg';
+// import img4 from '../../public/images/NIGHT PADEL.jpg';
 import img5 from '../../public/images/PADEL & MUSIC.png';
 import img6 from '../../public/images/CITY LIGHTS.png';
 import img7 from '../../public/images/RIVER CUP.png';
 import img8 from '../../public/images/SUNRISE MATCH.png';
-import img9 from '../../public/images/FINALS WEEKEND.jpg';
+// import img9 from '../../public/images/FINALS WEEKEND.jpg';
 
 const events = [
   { title: '7AM CLUB', meta: 'Community Event | Hamburg', image: img2, badge: 'Morning Grind' },
@@ -18,9 +18,9 @@ const events = [
   { title: 'CITY LIGHTS', meta: 'After Work | Berlin', image: img6, badge: 'Twilight Play' },
   { title: 'SUNRISE MATCH', meta: 'Early Morning | Hamburg', image: img8, badge: 'Golden Hour' },
   { title: 'FUNKHAUS BEACH', meta: 'Afternoon Session | Berlin', image: img1, badge: 'Spree Views' },
-  { title: 'EVENING CHALLENGE', meta: 'Evening Event | Spree', image: img3, badge: 'Sunset Smash' },
-  { title: 'NIGHT PADEL', meta: 'Night Session | Berlin', image: img4, badge: 'Moonlight Rally' },
-  { title: 'FINALS WEEKEND', meta: 'Tournament | Hamburg', image: img9, badge: 'Championship' }
+  // { title: 'EVENING CHALLENGE', meta: 'Evening Event | Spree', image: img3, badge: 'Sunset Smash' },
+  // { title: 'NIGHT PADEL', meta: 'Night Session | Berlin', image: img4, badge: 'Moonlight Rally' },
+  // { title: 'FINALS WEEKEND', meta: 'Tournament | Hamburg', image: img9, badge: 'Championship' }
 ];
 
 export default function EventShowcase() {
