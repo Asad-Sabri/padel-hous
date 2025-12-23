@@ -2,6 +2,56 @@ import { useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 
+// Component for Logo Image with fallback
+function LogoImage({ src, alt }) {
+  const [imageError, setImageError] = useState(false);
+
+  if (imageError || !src) {
+    return (
+      <div className="flex flex-col items-center justify-center w-full h-full text-gray-400 p-2">
+        <svg className="w-16 h-16" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+        </svg>
+        <span className="text-[8px] mt-1 text-center">Logo</span>
+      </div>
+    );
+  }
+
+  return (
+    <img
+      src={src}
+      alt={alt}
+      className="w-full h-full object-contain rounded-full"
+      onError={() => setImageError(true)}
+    />
+  );
+}
+
+// Component for QR Code with fallback
+function QRCodeImage({ src, alt }) {
+  const [imageError, setImageError] = useState(false);
+
+  if (imageError || !src) {
+    return (
+      <div className="flex flex-col items-center justify-center w-full h-full text-gray-400 ">
+        <svg className="w-16 h-16" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M3 3h8v8H3V3zm10 0h8v8h-8V3zM3 13h8v8H3v-8zm10 0h8v8h-8v-8z"/>
+        </svg>
+        <span className="text-[8px] mt-1 text-center">QR Code</span>
+      </div>
+    );
+  }
+
+  return (
+    <img
+      src={src}
+      alt={alt}
+      className="w-full h-full object-contain p-1"
+      onError={() => setImageError(true)}
+    />
+  );
+}
+
 export default function Contact() {
   const [formData, setFormData] = useState({
     businessName: "",
@@ -22,22 +72,40 @@ export default function Contact() {
   // WhatsApp Communities
   const whatsappCommunities = [
     {
-      name: "Gold Group",
-      description: "Join our premium Gold community",
+      name: "Gold",
+      skillLevel: "3.5+",
+      description: "Gold Level",
       link: "https://chat.whatsapp.com/FLPQmBVB2HZ0qZXbIKVaZC",
-      icon: "🥇",
+      bgColor: "bg-yellow-400",
+      borderColor: "border-yellow-500",
+      textColor: "text-yellow-900",
+      // logo: "../../public/images/gold-community-logo.jpeg", // Add your logo image here
+      logo: "../../public/images/1.png", // Add your logo image here
+      qrCode: "../../public/images/gold-community-barcode.png", // Add your QR code image here
     },
     {
-      name: "Silver Group",
-      description: "Join our Silver community",
+      name: "Silver",
+      skillLevel: "2.0 - 3.5",
+      description: "Silver Level",
       link: "https://chat.whatsapp.com/Ck5FqVwO6PE2z9t7lcLZIn",
-      icon: "🥈",
+      bgColor: "bg-gray-300",
+      borderColor: "border-gray-400",
+      textColor: "text-gray-900",
+      // logo: "../../public/images/silver-community-logo.jpeg", // Add your logo image here
+      logo: "../../public/images/3.png", // Add your logo image here
+      qrCode: "../../public/images/silver-community-barcode.png", // Add your QR code image here
     },
     {
-      name: "Bronze Group",
-      description: "Join our Bronze community",
+      name: "Bronze",
+      skillLevel: "0.5 - 2.0",
+      description: "Bronze Level",
       link: "https://chat.whatsapp.com/GazMoGBueHZHuToAi8moEH",
-      icon: "🥉",
+      bgColor: "bg-amber-700",
+      borderColor: "border-amber-800",
+      textColor: "text-amber-50",
+      // logo: "../../public/images/bronze-community-logo.jpeg", // Add your logo image here
+      logo: "../../public/images/2.png", // Add your logo image here
+      qrCode: "../../public/images/bronze-community-barcode.png", // Add your QR code image here
     },
   ];
 
@@ -64,81 +132,83 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 ">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-start">
           {/* Left Content - WhatsApp Communities */}
           <motion.div
-            className="flex flex-col gap-6"
+            className="flex flex-col gap-6 h-full"
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
             {/* Section Header */}
-            <div className="mb-2">
-              <h2 className="text-2xl font-bold text-[#012169] mb-2 flex items-center gap-2">
-                <span className="text-2xl">💬</span>
-                WhatsApp Communities
+            <div className="mb-0 sm:mb-0">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#012169] mb-1 uppercase tracking-wide">
+                PADEL FC WHATSAPP COMMUNITY
               </h2>
-              <p className="text-sm text-gray-600">
-                Join our communities to stay connected with updates, events, and exclusive offers.
-              </p>
             </div>
 
-            {/* Communities List */}
-            <div className="flex flex-col gap-4">
+            {/* Communities List - Picture Style */}
+            <div className="flex flex-col gap-4 sm:gap-5 md:gap-6">
               {whatsappCommunities.map((community, index) => (
-                <motion.a
-                  key={index}
-                  href={community.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-4 p-5 rounded-xl bg-green-50 border-2 border-green-200 hover:border-green-400 hover:bg-green-100 transition-all duration-300 cursor-pointer"
-                  whileHover={{ scale: 1.02, x: 4 }}
-                  whileTap={{ scale: 0.98 }}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  {/* Icon */}
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-green-200 flex items-center justify-center text-2xl group-hover:bg-green-300 transition-colors">
-                    {community.icon}
+                <div key={index}>
+                  {/* Heading above each card */}
+                  <div className="mb-2">
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                      <h3 className="text-lg sm:text-xl font-bold text-black uppercase group-hover:text-[#012169] transition-colors duration-300">
+                        {community.name} Level
+                      </h3>
+                      <span className="text-base sm:text-lg font-bold text-black">
+                        {community.skillLevel}
+                      </span>
+                    </div>
                   </div>
 
-                  {/* Content */}
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-gray-900 group-hover:text-green-700 transition-colors">
-                      {community.name}
-                    </h3>
-                    <p className="text-sm text-gray-600 mt-1 line-clamp-1">
-                      {community.description}
-                    </p>
-                  </div>
-
-                  {/* Arrow Icon */}
-                  <div className="flex-shrink-0 text-green-600 group-hover:text-green-700 group-hover:translate-x-1 transition-all">
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5l7 7-7 7"
+                  {/* Card - Fully Clickable */}
+                  <motion.a
+                    href={community.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative block bg-white/90 backdrop-blur-sm border border-slate-400 hover:border-[#FEDD00]/30 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 overflow-hidden p-4 sm:p-6 flex flex-row items-center justify-between gap-4 sm:gap-6 cursor-pointer"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    title={`Click to join ${community.name} WhatsApp group`}
+                  >
+                    {/* Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-blue-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    
+                    {/* Top Accent Line */}
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#FEDD00] via-blue-400 to-[#012169] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    
+                    {/* Badge Circle - Logo Image (No Border) */}
+                    <div className={`relative z-10 flex-shrink-0 w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32 ${community.bgColor} rounded-full flex items-center justify-center overflow-hidden group-hover:scale-110 transition-transform duration-300 shadow-sm`}>
+                      <LogoImage
+                        src={community.logo}
+                        alt={`${community.name} Community Logo`}
                       />
-                    </svg>
-                  </div>
-                </motion.a>
+                    </div>
+
+                    {/* Spacer */}
+                    <div className="flex-1"></div>
+
+                    {/* QR Code (No Border) */}
+                    <div className="relative z-10 flex-shrink-0 w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 bg-white rounded-lg flex items-center justify-center overflow-hidden group-hover:scale-110 transition-transform duration-300">
+                      <QRCodeImage
+                        src={community.qrCode}
+                        alt={`${community.name} Level QR Code`}
+                      />
+                    </div>
+                  </motion.a>
+                </div>
               ))}
             </div>
           </motion.div>
 
           {/* Right Form */}
           <motion.div
-            className="bg-white border border-gray-200 p-10 rounded-2xl shadow-xl"
+            className="bg-white border border-gray-200 p-6 sm:p-8 lg:p-10 rounded-2xl shadow-xl lg:mt-0 lg:ml-0"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
