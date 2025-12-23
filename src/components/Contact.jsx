@@ -2,6 +2,16 @@ import { useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 
+// Import images
+import goldLogo from "../../public/images/1.png";
+import silverLogo from "../../public/images/3.png";
+import bronzeLogo from "../../public/images/2.png";
+import goldQRCode from "../../public/images/gold-community-barcode.png";
+import silverQRCode from "../../public/images/silver-community-barcode.png";
+import bronzeQRCode from "../../public/images/bronze-community-barcode.png";
+
+
+
 // Component for Logo Image with fallback
 function LogoImage({ src, alt }) {
   const [imageError, setImageError] = useState(false);
@@ -79,9 +89,8 @@ export default function Contact() {
       bgColor: "bg-yellow-400",
       borderColor: "border-yellow-500",
       textColor: "text-yellow-900",
-      // logo: "../../public/images/gold-community-logo.jpeg", // Add your logo image here
-      logo: "../../public/images/1.png", // Add your logo image here
-      qrCode: "../../public/images/gold-community-barcode.png", // Add your QR code image here
+      logo: goldLogo,
+      qrCode: goldQRCode,
     },
     {
       name: "Silver",
@@ -91,9 +100,8 @@ export default function Contact() {
       bgColor: "bg-gray-300",
       borderColor: "border-gray-400",
       textColor: "text-gray-900",
-      // logo: "../../public/images/silver-community-logo.jpeg", // Add your logo image here
-      logo: "../../public/images/3.png", // Add your logo image here
-      qrCode: "../../public/images/silver-community-barcode.png", // Add your QR code image here
+      logo: silverLogo,
+      qrCode: silverQRCode,
     },
     {
       name: "Bronze",
@@ -103,9 +111,8 @@ export default function Contact() {
       bgColor: "bg-amber-700",
       borderColor: "border-amber-800",
       textColor: "text-amber-50",
-      // logo: "../../public/images/bronze-community-logo.jpeg", // Add your logo image here
-      logo: "../../public/images/2.png", // Add your logo image here
-      qrCode: "../../public/images/bronze-community-barcode.png", // Add your QR code image here
+      logo: bronzeLogo,
+      qrCode: bronzeQRCode,
     },
   ];
 
