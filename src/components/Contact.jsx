@@ -184,7 +184,7 @@ export default function Contact() {
 
               <div>
                 <label className="font-open-sans block text-sm font-semibold text-gray-700 mb-4 uppercase tracking-wide">
-                  Contact Name
+                  Full Name
                 </label>
                 <input
                   type="text"
@@ -224,7 +224,7 @@ export default function Contact() {
 
               <div>
                 <label className="font-open-sans block text-sm font-semibold text-gray-700 mb-2 uppercase tracking-wide">
-                  Additional Notes
+                  Message
                 </label>
                 <textarea
                   name="notes"
