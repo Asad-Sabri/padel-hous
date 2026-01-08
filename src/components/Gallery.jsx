@@ -45,13 +45,13 @@ export default function Gallery() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-          <p className="font-open-sans uppercase text-xs tracking-[0.25em] text-white/60 mb-3">
+          <p className="font-open-sans uppercase text-xs tracking-[0.25em] text-white/60 mb-3 font-semibold">
             Courts & Atmosphere
           </p>
-          <h2 className="font-akira text-3xl md:text-4xl font-bold text-white mb-3">
+          <h2 className="font-open-sans text-2xl sm:text-3xl md:text-4xl font-black text-white mb-3 uppercase tracking-tight">
             Experience Our Padel Spaces
           </h2>
-          <p className="font-open-sans text-lg text-white/80 max-w-2xl mx-auto">
+          <p className="font-open-sans text-lg text-white/80 max-w-2xl mx-auto font-medium">
             Indoor glass courts, riverside views, and night sessions designed for play, community, and events.
           </p>
         </motion.div>
@@ -85,14 +85,14 @@ export default function Gallery() {
 
             <div className="absolute bottom-0 left-0 right-0 p-5">
               <div className="flex flex-col gap-3 bg-white/15 backdrop-blur-md border border-white/15 rounded-xl px-4 py-3 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)]">
-                <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.15em] text-white/85">
+                <div className="flex items-center gap-3 text-xs font-open-sans font-semibold uppercase tracking-[0.15em] text-white/85">
                   <span className="px-2 py-1 rounded-md bg-white/20 text-white">{images[current].tag}</span>
                   <span className="text-white/70">{images[current].location}</span>
                 </div>
-                <p className="text-lg font-semibold text-white leading-snug">
+                <p className="font-open-sans text-lg font-bold text-white leading-snug uppercase">
                   {images[current].caption}
                 </p>
-                <div className="flex gap-2 items-center text-white/80 text-sm">
+                <div className="flex gap-2 items-center text-white/80 text-sm font-open-sans font-medium">
                   <span className="w-2 h-2 rounded-full bg-[#FEDD00] inline-block" />
                   <span>Premium conditions for play, training, and events.</span>
                 </div>
@@ -125,9 +125,9 @@ export default function Gallery() {
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
-                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-white">
-                    <span className="font-semibold">{item.tag}</span>
-                    <span className="text-white/70">{idx + 1}/{images.length}</span>
+                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-white font-open-sans">
+                    <span className="font-bold uppercase">{item.tag}</span>
+                    <span className="text-white/70 font-medium">{idx + 1}/{images.length}</span>
                   </div>
                 </button>
               )

@@ -130,97 +130,29 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          <h1 className="font-akira text-5xl md:text-6xl font-bold mb-4 text-[#012169]">
+          <h1 className="font-akira text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 text-[#012169] uppercase tracking-tight">
             Get in Touch
           </h1>
-          <p className="font-open-sans text-lg text-gray-600 max-w-2xl mx-auto">
-            Reach out to us for coaching sessions, corporate events, or any
-            general enquiries.
+          <p className="font-open-sans text-lg text-gray-600 max-w-2xl mx-auto font-bold uppercase tracking-wide">
+            REACH OUT TO US FOR COACHING SESSIONS, CORPORATE EVENTS, OR ANY
+            GENERAL ENQUIRIES.
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-start">
-          {/* Left Content - WhatsApp Communities */}
+          {/* Left Form - Order 2 on small/medium, Order 1 on large */}
           <motion.div
-            className="flex flex-col gap-6 h-full"
+            className="bg-white border border-gray-200 p-6 sm:p-8 lg:p-10 rounded-2xl shadow-xl lg:mt-0 lg:ml-0 order-2 lg:order-1"
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
-            {/* Section Header */}
-            <div className="mb-0 sm:mb-0">
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#012169] mb-1 uppercase tracking-wide">
-                PADEL FC WHATSAPP COMMUNITY
-              </h2>
-            </div>
-
-            {/* Communities List - Picture Style */}
-            <div className="flex flex-col gap-4 sm:gap-5 md:gap-6">
-              {whatsappCommunities.map((community, index) => (
-                <div key={index}>
-                  {/* Heading above each card */}
-                  <div className="mb-2">
-                    <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-                      <h3 className="text-lg sm:text-xl font-bold text-black uppercase group-hover:text-[#012169] transition-colors duration-300">
-                        {community.name} Level
-                      </h3>
-                      <span className="text-base sm:text-lg font-bold text-black">
-                        {community.skillLevel}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Card - Fully Clickable */}
-                  <motion.a
-                    href={community.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group relative block bg-white/90 backdrop-blur-sm border border-slate-400 hover:border-[#FEDD00]/30 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 overflow-hidden p-4 sm:p-6 flex flex-row items-center justify-between gap-4 sm:gap-6 cursor-pointer"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    title={`Click to join ${community.name} WhatsApp group`}
-                  >
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-blue-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    
-                    {/* Top Accent Line */}
-                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#FEDD00] via-blue-400 to-[#012169] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-                    
-                    {/* Badge Circle - Logo Image (No Border) */}
-                    <div className={`relative z-10 flex-shrink-0 w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32 ${community.bgColor} rounded-full flex items-center justify-center overflow-hidden group-hover:scale-110 transition-transform duration-300 shadow-sm`}>
-                      <LogoImage
-                        src={community.logo}
-                        alt={`${community.name} Community Logo`}
-                      />
-                    </div>
-
-                    {/* Spacer */}
-                    <div className="flex-1"></div>
-
-                    {/* QR Code (No Border) */}
-                    <div className="relative z-10 flex-shrink-0 w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 bg-white rounded-lg flex items-center justify-center overflow-hidden group-hover:scale-110 transition-transform duration-300">
-                      <QRCodeImage
-                        src={community.qrCode}
-                        alt={`${community.name} Level QR Code`}
-                      />
-                    </div>
-                  </motion.a>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Right Form */}
-          <motion.div
-            className="bg-white border border-gray-200 p-6 sm:p-8 lg:p-10 rounded-2xl shadow-xl lg:mt-0 lg:ml-0"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-          >
+            <div className="mb-4 sm:mb-6">
+                <h3 className="font-akira text-base sm:text-lg md:text-xl lg:text-2xl font-black text-[#012169] mb-1 uppercase tracking-wide">
+                  Contact Us
+                </h3>
+              </div>
             <form
               name="contact"
               method="POST"
@@ -232,7 +164,7 @@ export default function Contact() {
               <input type="hidden" name="form-name" value="contact" />
               <div style={{ display: "none" }}>
                 <label>
-                  Don’t fill this out if you're human:{" "}
+                  Don't fill this out if you're human:{" "}
                   <input name="bot-field" />
                 </label>
               </div>
@@ -246,12 +178,12 @@ export default function Contact() {
                   name="businessName"
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#012169] focus:outline-none"
+                  className="font-open-sans w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#012169] focus:outline-none"
                 />
               </div> */}
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="font-open-sans block text-sm font-semibold text-gray-700 mb-4 uppercase tracking-wide">
                   Contact Name
                 </label>
                 <input
@@ -259,13 +191,13 @@ export default function Contact() {
                   name="contactName"
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#012169] focus:outline-none"
+                  className="font-open-sans w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#012169] focus:outline-none"
                 />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="font-open-sans block text-sm font-semibold text-gray-700 mb-2 uppercase tracking-wide">
                     Email
                   </label>
                   <input
@@ -273,11 +205,11 @@ export default function Contact() {
                     name="email"
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#012169] focus:outline-none"
+                    className="font-open-sans w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#012169] focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="font-open-sans block text-sm font-semibold text-gray-700 mb-2 uppercase tracking-wide">
                     Phone Number
                   </label>
                   <input
@@ -285,32 +217,108 @@ export default function Contact() {
                     name="phone"
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#012169] focus:outline-none"
+                    className="font-open-sans w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#012169] focus:outline-none"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="font-open-sans block text-sm font-semibold text-gray-700 mb-2 uppercase tracking-wide">
                   Additional Notes
                 </label>
                 <textarea
                   name="notes"
                   rows={4}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#012169] focus:outline-none"
+                  className="font-open-sans w-full px-4 py-7 mb-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#012169] focus:outline-none"
                 />
               </div>
 
               <motion.button
                 type="submit"
-                className="w-full py-4 rounded-full text-base font-semibold bg-[#FEDD00] text-black shadow-lg"
+                className="font-open-sans w-full py-4 rounded-full text-base font-black bg-[#FEDD00] text-black shadow-lg uppercase tracking-wide"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
               >
                 Send Message
               </motion.button>
             </form>
+          </motion.div>
+
+          {/* Right Content - WhatsApp Communities - Order 1 on small/medium, Order 2 on large */}
+          <motion.div
+            className="h-full order-1 lg:order-2"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+          >
+            {/* Outer Card Wrapper */}
+            <div className="bg-white border border-gray-200 p-6 sm:p-8 lg:p-10 rounded-2xl shadow-xl">
+              {/* Section Header */}
+              <div className="mb-4 sm:mb-6">
+                <h3 className="font-akira text-base sm:text-lg md:text-xl lg:text-2xl font-black text-[#012169] mb-1 uppercase tracking-wide">
+                  PADEL FC WHATSAPP COMMUNITY
+                </h3>
+              </div>
+
+              {/* Communities List - Picture Style */}
+              <div className="flex flex-col gap-3 sm:gap-4">
+                {whatsappCommunities.map((community, index) => (
+                  <div key={index}>
+                    {/* Heading above each card */}
+                    <div className="mb-1.5">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <h3 className="font-open-sans text-sm sm:text-base font-black text-black uppercase group-hover:text-[#012169] transition-colors duration-300 tracking-wide">
+                          {community.name} Level
+                        </h3>
+                        <span className="font-open-sans text-sm sm:text-base font-black text-black">
+                          {community.skillLevel}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Card - Fully Clickable */}
+                    <motion.a
+                      href={community.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group relative block bg-white/90 backdrop-blur-sm border border-slate-400 hover:border-[#FEDD00]/30 rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 overflow-hidden p-3 sm:p-4 flex flex-row items-center justify-between gap-3 sm:gap-4 cursor-pointer"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      title={`Click to join ${community.name} WhatsApp group`}
+                    >
+                      {/* Gradient Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-blue-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      
+                      {/* Top Accent Line */}
+                      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#FEDD00] via-blue-400 to-[#012169] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                      
+                      {/* Badge Circle - Logo Image (No Border) */}
+                      <div className={`relative z-10 flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 ${community.bgColor} rounded-full flex items-center justify-center overflow-hidden group-hover:scale-110 transition-transform duration-300 shadow-sm`}>
+                        <LogoImage
+                          src={community.logo}
+                          alt={`${community.name} Community Logo`}
+                        />
+                      </div>
+
+                      {/* Spacer */}
+                      <div className="flex-1"></div>
+
+                      {/* QR Code (No Border) */}
+                      <div className="relative z-10 flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-lg flex items-center justify-center overflow-hidden group-hover:scale-110 transition-transform duration-300">
+                        <QRCodeImage
+                          src={community.qrCode}
+                          alt={`${community.name} Level QR Code`}
+                        />
+                      </div>
+                    </motion.a>
+                  </div>
+                ))}
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>

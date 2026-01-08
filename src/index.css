@@ -1,5 +1,28 @@
 @import "tailwindcss";
 
+/* Akira Font from reference website */
+@font-face {
+  font-family: "Akira";
+  src: url(https://padelfc.com/wp-content/uploads/2022/10/Akira%20Expanded%20Demo.woff2) format('woff2'),
+       url(https://padelfc.com/wp-content/uploads/2022/10/Akira%20Expanded%20Demo.woff) format('woff'),
+       url(https://padelfc.com/wp-content/uploads/2022/10/Akira%20Expanded%20Demo.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Open Sans Font from reference website */
+@font-face {
+  font-family: "Open Sans";
+  src: url(https://padelfc.com/wp-content/uploads/2022/10/OpenSans-VariableFont_wdth,wght.woff2) format('woff2'),
+       url(https://padelfc.com/wp-content/uploads/2022/10/OpenSans-VariableFont_wdth,wght.woff) format('woff'),
+       url(https://padelfc.com/wp-content/uploads/2022/10/OpenSans-VariableFont_wdth,wght.ttf) format('truetype');
+  font-weight: 100 900;
+  font-stretch: 75% 100%;
+  font-style: normal;
+  font-display: swap;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -20,11 +43,16 @@ body {
 
 /* Custom font classes */
 .font-akira {
-  font-family: 'Akira Expanded', 'Akira', sans-serif;
+  font-family: "Akira", Sans-serif;
+  /* font-size removed - using Tailwind responsive classes instead */
 }
 
 .font-open-sans {
   font-family: 'Open Sans', sans-serif;
+}
+
+.akira-font {
+  font-family: 'Akira', 'Akira Expanded', sans-serif;
 }
 
 /* Smooth scrolling for the entire document */
