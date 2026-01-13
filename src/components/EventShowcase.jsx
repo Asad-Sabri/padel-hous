@@ -90,13 +90,13 @@ export default function EventShowcase() {
 
               <div className="absolute inset-0 flex flex-col p-6 sm:p-8">
                 <div className="mt-auto space-y-3">
-                  <div className="font-open-sans inline-flex bg-white/90 text-black px-4 py-2 text-[11px] tracking-[0.14em] uppercase font-semibold">
+                  <div className="font-neutra-book inline-flex bg-white/90 text-black px-4 py-2 text-[11px] tracking-[0.14em] uppercase font-semibold">
                     {event.badge}
                   </div>
-                  <p className="font-open-sans text-xs sm:text-sm uppercase tracking-[0.18em] opacity-80 font-medium">
+                  <p className="font-neutra-book text-xs sm:text-sm uppercase tracking-[0.18em] opacity-80 font-medium">
                     {event.meta}
                   </p>
-                  <h3 className="font-open-sans text-2xl sm:text-3xl font-black tracking-tight uppercase">
+                  <h3 className="font-neutra-bold text-2xl sm:text-3xl tracking-tight uppercase">
                     {event.title}
                   </h3>
                 </div>

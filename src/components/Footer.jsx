@@ -32,14 +32,14 @@ export default function Footer() {
             alt="Padel FC Logo"
             className="w-32 invert brightness-0"
           />
-          <p className="font-open-sans text-sm text-white/80 leading-relaxed font-medium">
+          <p className="font-neutra-book text-sm text-white/80 leading-relaxed font-medium">
             PadelHaus Berlin-riverside and indoor padel experience with premium
             courts, events and community.
           </p>
         </div>
 
         <div>
-          <h3 className="font-open-sans font-bold text-lg mb-4 uppercase tracking-wide">Our Neighbours</h3>
+          <h3 className="font-neutra-book font-bold text-lg mb-4 uppercase tracking-wide">Our Neighbours</h3>
           <ul className="space-y-2 text-sm text-white/85">
             {clubs.map((club) => (
               <li key={club.name} className="flex items-center gap-2">
@@ -47,7 +47,7 @@ export default function Footer() {
                   href={club.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-open-sans hover:text-[#FEDD00] transition-colors duration-200 font-medium"
+                  className="font-neutra-book hover:text-[#FEDD00] transition-colors duration-200 font-medium"
                 >
                   {club.name}
                 </a>
@@ -62,11 +62,11 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="font-open-sans font-bold text-lg mb-4 uppercase tracking-wide">Company</h3>
+          <h3 className="font-neutra-book font-bold text-lg mb-4 uppercase tracking-wide">Company</h3>
           <ul className="space-y-2 text-sm text-white/85">
             {companyLinks.map((item) => (
               <li key={item.label} className="flex items-center gap-2">
-                <span className="font-open-sans font-medium">{item.label}</span>
+                <span className="font-neutra-book font-medium">{item.label}</span>
                 {item.tag && (
                   <span className="text-[11px] uppercase bg-white text-black px-2 py-0.5 rounded-md leading-tight">
                     {item.tag}
@@ -85,17 +85,17 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="font-open-sans font-bold text-lg mb-4 uppercase tracking-wide">Contact</h3>
-          <p className="font-open-sans text-sm text-white/85 leading-relaxed font-medium">
+          <h3 className="font-neutra-book font-bold text-lg mb-4 uppercase tracking-wide">Contact</h3>
+          <p className="font-neutra-book text-sm text-white/85 leading-relaxed font-medium">
             PadelHaus Berlin
           </p>
-          <p className="font-open-sans mt-4 text-sm text-white/90 font-medium">operations@padelfc.net</p>
-          <p className="font-open-sans mt-4 text-sm text-white/90 font-medium">+4915566444822</p>
+          <p className="font-neutra-book mt-4 text-sm text-white/90 font-medium">operations@padelfc.net</p>
+          <p className="font-gt-eesti mt-4 text-sm text-white/90 font-medium">+4915566444822</p>
           <div className="flex items-center gap-4 mt-4 text-lg text-white/85">
-            <a href="#" aria-label="Instagram" className="font-open-sans hover:text-white font-bold uppercase tracking-wide">
+            <a href="#" aria-label="Instagram" className="font-neutra-book hover:text-white font-bold uppercase tracking-wide">
               IG
             </a>
-            <a href="#" aria-label="LinkedIn" className="font-open-sans hover:text-white font-bold uppercase tracking-wide">
+            <a href="#" aria-label="LinkedIn" className="font-neutra-book hover:text-white font-bold uppercase tracking-wide">
               IN
             </a>
           </div>
@@ -104,8 +104,8 @@ export default function Footer() {
 
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-6 flex flex-col sm:flex-row justify-between text-xs text-white/60 gap-3">
-          <span className="font-open-sans font-medium">© 2024 Padel FC. All rights reserved.</span>
-          <span className="font-open-sans font-medium">Built for players, partners, and community.</span>
+          <span className="font-neutra-book font-medium">© 2024 Padel FC. All rights reserved.</span>
+          <span className="font-neutra-book font-medium">Built for players, partners, and community.</span>
         </div>
       </div>
     </motion.footer>

@@ -34,7 +34,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Neutra Text', sans-serif;
   overflow-x: hidden;
   width: 100%;
   background: #F5F7FA;
@@ -53,6 +53,37 @@ body {
 
 .akira-font {
   font-family: 'Akira', 'Akira Expanded', sans-serif;
+}
+
+/* Hero section paragraph styling */
+.hero-paragraph {
+  font-family: "Open Sans", Sans-serif;
+  font-size: 10px;
+  font-weight: bolder;
+  line-height: 1.2em;
+  letter-spacing: 0px;
+  margin: 0% 0% 2% 0%;
+}
+
+@media (min-width: 1024px) {
+  .hero-paragraph {
+    font-size: 1.5vw;
+  }
+}
+
+/* Client fonts */
+.font-gt-eesti {
+  font-family: 'GT Eesti Display', sans-serif;
+}
+
+.font-neutra-bold {
+  font-family: 'Neutra Text', sans-serif;
+  font-weight: 700;
+}
+
+.font-neutra-book {
+  font-family: 'Neutra Text', sans-serif;
+  font-weight: 400;
 }
 
 /* Smooth scrolling for the entire document */

@@ -130,10 +130,10 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          <h1 className="font-akira text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 text-[#012169] uppercase tracking-tight">
+          <h1 className="font-neutra-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 text-[#012169] uppercase tracking-tight">
             Get in Touch
           </h1>
-          <p className="font-open-sans text-lg text-gray-600 max-w-2xl mx-auto font-bold uppercase tracking-wide">
+          <p className="font-neutra-book text-lg text-gray-600 max-w-2xl mx-auto font-bold uppercase tracking-wide">
             REACH OUT TO US FOR COACHING SESSIONS, CORPORATE EVENTS, OR ANY
             GENERAL ENQUIRIES.
           </p>
@@ -149,7 +149,7 @@ export default function Contact() {
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
             <div className="mb-4 sm:mb-6">
-                <h3 className="font-akira text-base sm:text-lg md:text-xl lg:text-2xl font-black text-[#012169] mb-1 uppercase tracking-wide">
+                <h3 className="font-neutra-bold text-base sm:text-lg md:text-xl lg:text-2xl text-[#012169] mb-1 uppercase tracking-wide">
                   Contact Us
                 </h3>
               </div>
@@ -178,12 +178,12 @@ export default function Contact() {
                   name="businessName"
                   onChange={handleChange}
                   required
-                  className="font-open-sans w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#012169] focus:outline-none"
+                  className="font-neutra-book w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#012169] focus:outline-none"
                 />
               </div> */}
 
               <div>
-                <label className="font-open-sans block text-sm font-semibold text-gray-700 mb-4 uppercase tracking-wide">
+                <label className="font-neutra-book block text-sm font-semibold text-gray-700 mb-4 uppercase tracking-wide">
                   Full Name
                 </label>
                 <input
@@ -191,13 +191,13 @@ export default function Contact() {
                   name="contactName"
                   onChange={handleChange}
                   required
-                  className="font-open-sans w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#012169] focus:outline-none"
+                  className="font-neutra-book w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#012169] focus:outline-none"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                 <div>
-                  <label className="font-open-sans block text-sm font-semibold text-gray-700 mb-2 uppercase tracking-wide">
+                  <label className="font-neutra-book block text-sm font-semibold text-gray-700 mb-2 uppercase tracking-wide">
                     Email
                   </label>
                   <input
@@ -205,11 +205,11 @@ export default function Contact() {
                     name="email"
                     onChange={handleChange}
                     required
-                    className="font-open-sans w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#012169] focus:outline-none"
+                    className="font-neutra-book w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#012169] focus:outline-none"
                   />
                 </div>
                 <div>
-                  <label className="font-open-sans block text-sm font-semibold text-gray-700 mb-2 uppercase tracking-wide">
+                  <label className="font-neutra-book block text-sm font-semibold text-gray-700 mb-2 uppercase tracking-wide">
                     Phone Number
                   </label>
                   <input
@@ -217,26 +217,26 @@ export default function Contact() {
                     name="phone"
                     onChange={handleChange}
                     required
-                    className="font-open-sans w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#012169] focus:outline-none"
+                    className="font-neutra-book w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#012169] focus:outline-none"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="font-open-sans block text-sm font-semibold text-gray-700 mb-2 uppercase tracking-wide">
+                <label className="font-neutra-book block text-sm font-semibold text-gray-700 mb-2 uppercase tracking-wide">
                   Message
                 </label>
                 <textarea
                   name="notes"
                   rows={4}
                   onChange={handleChange}
-                  className="font-open-sans w-full px-4 py-7 mb-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#012169] focus:outline-none"
+                  className="font-neutra-book w-full px-4 py-7 mb-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#012169] focus:outline-none"
                 />
               </div>
 
               <motion.button
                 type="submit"
-                className="font-open-sans w-full py-4 rounded-full text-base font-black bg-[#FEDD00] text-black shadow-lg uppercase tracking-wide"
+                className="font-neutra-book w-full py-4 rounded-full text-base font-black bg-[#FEDD00] text-black shadow-lg uppercase tracking-wide"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
               >
@@ -257,7 +257,7 @@ export default function Contact() {
             <div className="bg-white border border-gray-200 p-6 sm:p-8 lg:p-10 rounded-2xl shadow-xl">
               {/* Section Header */}
               <div className="mb-4 sm:mb-6">
-                <h3 className="font-akira text-base sm:text-lg md:text-xl lg:text-2xl font-black text-[#012169] mb-1 uppercase tracking-wide">
+                <h3 className="font-neutra-bold text-base sm:text-lg md:text-xl lg:text-2xl text-[#012169] mb-1 uppercase tracking-wide">
                   PADEL FC WHATSAPP COMMUNITY
                 </h3>
               </div>
@@ -269,10 +269,10 @@ export default function Contact() {
                     {/* Heading above each card */}
                     <div className="mb-1.5">
                       <div className="flex flex-wrap items-center gap-2">
-                        <h3 className="font-open-sans text-sm sm:text-base font-black text-black uppercase group-hover:text-[#012169] transition-colors duration-300 tracking-wide">
+                        <h3 className="font-neutra-book text-sm sm:text-base font-black text-black uppercase group-hover:text-[#012169] transition-colors duration-300 tracking-wide">
                           {community.name} Level
                         </h3>
-                        <span className="font-open-sans text-sm sm:text-base font-black text-black">
+                        <span className="font-neutra-book text-sm sm:text-base font-black text-black">
                           {community.skillLevel}
                         </span>
                       </div>

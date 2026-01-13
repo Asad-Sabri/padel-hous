@@ -46,7 +46,7 @@ export default function Hero() {
         transition={{ duration: 0.3, ease: "easeOut" }}
       >
         <motion.h1
-          className="font-akira text-3xl sm:text-5xl md:text-6xl lg:text-5xl font-black text-white mb-8 sm:mb-10 md:mb-12 uppercase tracking-tight"
+          className="font-neutra-bold text-3xl sm:text-5xl md:text-6xl lg:text-5xl text-white mb-8 sm:mb-10 md:mb-12 uppercase tracking-tight"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
@@ -56,7 +56,7 @@ export default function Hero() {
         </motion.h1>
 
         <motion.p
-          className="font-open-sans text-base sm:text-lg md:text-xl text-white mb-8 sm:mb-12 max-w-2xl mx-auto opacity-90 font-bold uppercase tracking-wide"
+          className="hero-paragraph font-open-sans text-white max-w-2xl mx-auto uppercase"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
@@ -66,7 +66,7 @@ export default function Hero() {
         </motion.p>
 
         <motion.button
-          className="font-open-sans px-10 py-3 sm:px-14 sm:py-3.5 rounded-lg text-base sm:text-lg font-black bg-[#FEDD00] text-black shadow-md transition-all duration-300 uppercase tracking-wide"
+          className="font-neutra-bold px-10 py-3 sm:px-14 sm:py-3.5 rounded-lg text-base sm:text-lg bg-[#FEDD00] text-black shadow-md transition-all duration-300 uppercase tracking-wide"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
