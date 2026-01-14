@@ -280,7 +280,7 @@ export default function Contact() {
                     {/* Heading above each card */}
                     <div className="mb-1.5">
                       <div className="flex flex-wrap items-center gap-2">
-                        <h3 className="font-neutra-book text-sm sm:text-base font-black text-black uppercase group-hover:text-[#012169] transition-colors duration-300 tracking-wide">
+                        <h3 className="font-neutra-book text-gray-700 text-sm sm:text-base font-black text-black uppercase group-hover:text-[#012169] transition-colors duration-300 tracking-wide">
                           {community.name} Level
                         </h3>
                         <span className="font-neutra-book text-sm sm:text-base font-black text-black">
