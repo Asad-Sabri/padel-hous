@@ -130,12 +130,23 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          <h1 className="font-neutra-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 text-[#012169] uppercase tracking-tight">
+          {/* <h1 className="font-neutra-bold-contact font-akira">
             Get in Touch
-          </h1>
-          <p className="font-neutra-book text-lg text-gray-600 max-w-2xl mx-auto font-bold uppercase tracking-wide">
-            REACH OUT TO US FOR COACHING SESSIONS, CORPORATE EVENTS, OR ANY
-            GENERAL ENQUIRIES.
+          </h1> */}
+          <motion.h3
+          className="contact-heading font-akira"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
+        >
+          <b>
+          Get in Touch
+          </b>
+          
+        </motion.h3>
+          <p className="cards-paragraph text-slate-900 text-lg  max-w-2xl mx-auto font-bold uppercase tracking-wide mt-3">
+    <b>        REACH OUT TO US FOR COACHING SESSIONS, CORPORATE EVENTS, OR ANY
+    GENERAL ENQUIRIES.</b>
           </p>
         </motion.div>
 
@@ -149,8 +160,8 @@ export default function Contact() {
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
             <div className="mb-4 sm:mb-6">
-                <h3 className="font-neutra-bold text-base sm:text-lg md:text-xl lg:text-2xl text-[#012169] mb-1 uppercase tracking-wide">
-                  Contact Us
+                <h3 className="cards-paragraph text-base sm:text-lg md:text-xl lg:text-2xl  mb-1 uppercase tracking-wide">
+                  <b>Contact Us</b>
                 </h3>
               </div>
             <form
@@ -257,9 +268,9 @@ export default function Contact() {
             <div className="bg-white border border-gray-200 p-6 sm:p-8 lg:p-10 rounded-2xl shadow-xl">
               {/* Section Header */}
               <div className="mb-4 sm:mb-6">
-                <h3 className="font-neutra-bold text-base sm:text-lg md:text-xl lg:text-2xl text-[#012169] mb-1 uppercase tracking-wide">
-                  PADEL FC WHATSAPP COMMUNITY
-                </h3>
+                <h1 className="cards-paragraph text-base sm:text-lg md:text-xl lg:text-2xl text-[#012169] mb-1 uppercase tracking-wide">
+                  <b>PADEL FC WHATSAPP COMMUNITY</b>
+                </h1>
               </div>
 
               {/* Communities List - Picture Style */}

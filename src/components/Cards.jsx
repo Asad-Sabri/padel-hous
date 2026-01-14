@@ -52,7 +52,7 @@ export default function Cards() {
             <div className="h-1 w-16 bg-gradient-to-r from-transparent via-[#012169] to-transparent"></div>
           </div>
           
-          <p className="font-neutra-book text-base my-5 font-bold text-slate-700 md:text-lg relative z-10 uppercase tracking-wide">
+          <p className="cards-paragraph my-5 relative z-10">
             {/* Every detail of our club is designed to elevate your match day—from our thoughtfully designed courts to our vibrant community atmosphere. */}
             <b>PADELHAUS OFFERS PADEL WITHIN AN ELEVATED SPORTS ENVIRONMENT, ALONGSIDE BEACH VOLLEYBALL, PICKLEHAUS, FLOATING SAUNAS, AND MORE SPORTS CONCEPTS TO COME MAKING IT A VIBRANT SPORTS HUB.</b>
           </p>
@@ -81,10 +81,10 @@ export default function Cards() {
                     className="h-8 w-8 text-slate-700 group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>
-                <h3 className="font-neutra-bold mb-3 text-lg sm:text-xl md:text-2xl text-slate-900 group-hover:text-[#012169] transition-colors duration-300 uppercase">
-                  {feature.title}
+                <h3 className="cards-paragraph text-slate-900 group-hover:text-[#012169] transition-colors duration-300 uppercase">
+                  <b>{feature.title}</b>
                 </h3>
-                <p className="font-neutra-book text-base font-bold text-slate-600 leading-relaxed uppercase tracking-wide">
+                <p className="font-neutra-book text-base text-slate-600 leading-relaxed uppercase tracking-wide">
                   {feature.desc.toUpperCase()}
                 </p>
               </div>

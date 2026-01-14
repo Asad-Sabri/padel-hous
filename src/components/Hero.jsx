@@ -46,37 +46,31 @@ export default function Hero() {
         transition={{ duration: 0.3, ease: "easeOut" }}
       >
         <motion.h1
-          className="font-neutra-bold text-3xl sm:text-5xl md:text-6xl lg:text-5xl text-white mb-8 sm:mb-10 md:mb-12 uppercase tracking-tight"
+          className="hero-heading font-akira text-white"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
         >
-          <span>Berlin,</span>
-          <br /> <span>Let's Padel</span>
+          <b>
+          Berlin,<br /> Let's Padel  
+          </b>
+          
         </motion.h1>
 
         <motion.p
-          className="hero-paragraph font-open-sans text-white max-w-2xl mx-auto uppercase"
+          className="hero-paragraph text-white uppercase"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
         >
-          EXPERIENCE BERLIN'S FIRST INDOOR PADEL CLUB! ENJOY PADEL ON AND OFF
-          THE PITCH IN OUR NEW INDUSTRIAL LOCATION BY THE SPREE
+          EXPERIENCE BERLIN'S <b>FIRST INDOOR PADEL CLUB!</b><br /> ENJOY <b>PADEL</b> ON AND OFF THE PITCH IN OUR NEW <br /> INDUSTRIAL LOCATION BY THE <b>SPREE</b>
         </motion.p>
 
         <motion.button
-          className="font-neutra-bold px-10 py-3 sm:px-14 sm:py-3.5 rounded-lg text-base sm:text-lg bg-[#FEDD00] text-black shadow-md transition-all duration-300 uppercase tracking-wide"
+          className="book-now-button"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.3, ease: "easeOut" }}
-          whileHover={{
-            scale: 1.05,
-            y: -2,
-            backgroundColor: "#FFD700",
-            shadow: "0 10px 20px rgba(0,0,0,0.2)",
-            transition: { duration: 0.15 },
-          }}
           whileTap={{ scale: 0.97 }}
           onClick={(e) => handleSmoothScroll(e, "#contact", 90)}
         >
